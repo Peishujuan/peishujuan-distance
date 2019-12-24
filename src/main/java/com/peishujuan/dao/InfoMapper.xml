@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.peishujuan.dao.InfoMapper">
+	<insert id="insert">
+		insert into t_info (cardno,created,jd,wd) values
+		<foreach collection="list" item="i" separator=",">
+			(#{i.cardno},#{i.created},#{i.jd},#{i.wd})
+		</foreach>
+		
+	</insert>
+	
+	<select id="getInfoList" resultType="info"> 
+		select * from t_info
+	</select>
+</mapper>
